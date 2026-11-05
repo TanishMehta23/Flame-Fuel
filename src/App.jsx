@@ -11,6 +11,7 @@ import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import SafeImage from "./components/SafeImage";
 import ScrollProgressBar from "./components/ScrollProgressBar";
+import { Analytics } from "@vercel/analytics/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -270,5 +271,6 @@ export default function App() {
     <Navbar lenis={lenis}/>
     <main><Hero/><Marquee/><Signature/><ExplodingBurger/><Menu/><About/><Ingredients/><CTA/><Contact/></main>
     <Footer lenisInstance={lenis}/>
+    <Analytics />
   </>;
 }
