@@ -16,7 +16,7 @@
 
 ---
 
-## 📖 Overview
+## Overview
 
 **FLAME & FUEL** is an editorial, dark-cinematic landing page crafted for a premier burger brand. It pairs high-impact food photography, razor-sharp typography, and smooth interactive physics with GSAP ScrollTrigger timelines and hardware-accelerated Lenis smooth scrolling.
 
@@ -24,7 +24,7 @@ Designed with meticulous attention to brand aesthetics, user feel, and responsiv
 
 ---
 
-## ✨ Key Features & Highlights
+## Key Features & Highlights
 
 - **Cinematic Visual Identity**: Deep carbon `#10100e` palette punctuated by signature `#f45b25` flame-orange accents, sharp Space Grotesk editorial typography, and DM Sans readability.
 - **Exploding Burger Showcase**: Viewport-adaptive 8-layer interactive anatomy breakdown pinned on scroll with dynamic ingredient separation physics.
@@ -40,7 +40,7 @@ Designed with meticulous attention to brand aesthetics, user feel, and responsiv
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 | :--- | :--- |
@@ -53,7 +53,7 @@ Designed with meticulous attention to brand aesthetics, user feel, and responsiv
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 Burger/
@@ -87,7 +87,7 @@ Burger/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -125,18 +125,10 @@ npm run preview
 
 ---
 
-## ⚙️ Configuration & Customization
+## Configuration & Customization
 
 - **Menu Items & Pricing**: Edit [`src/data/menu.js`](src/data/menu.js) to add or modify burger descriptions, pricing (₹), categories, and ingredient tags.
 - **Restaurant Information**: Edit [`src/data/restaurant.js`](src/data/restaurant.js) to update official email (`mehtatanish2306@gmail.com`), operating hours, and social media handles.
 - **Color Theme & Scrollbar**: Customize brand variables in [`src/index.css`](src/index.css) (`--orange: #f45b25`, `--bg: #10100e`).
 
 ---
-
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
-<p align="center">
-  <sub>FLAME & FUEL · Built with fire, flavour, and motion · Est. 2026</sub>
-</p>
