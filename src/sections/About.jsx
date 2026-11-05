@@ -268,13 +268,13 @@ export default function About() {
                   loading="lazy"
                   width={1000}
                   height={750}
-                  className="gallery-img w-full h-[125%] object-cover object-center filter saturate-[0.8] contrast-[1.1] transition-transform duration-700 group-hover:scale-105 group-hover:saturate-100"
+                  className="gallery-img w-full h-[125%] object-cover object-center filter brightness-105 contrast-[1.02] transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
-              {/* Cinematic Dark Gradient Voids */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#10100e] via-[#10100e]/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-75" />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
+              {/* Gradient overlay for bottom text readability */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#10100e] via-[#10100e]/60 to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/40 to-transparent" />
 
               {/* Card Corner Tag Badge */}
               <div className="absolute top-4 left-4 z-10">

@@ -233,7 +233,7 @@ export default function Footer({ lenisInstance }) {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 sm:gap-14 py-20 border-b border-[rgba(244,240,233,0.1)]"
         >
           {/* Brand Identity Column (Lg 4 cols) */}
-          <div className="footer-col-item lg:col-span-4 flex flex-col justify-between">
+          <div className="footer-col-item lg:col-span-4 flex flex-col justify-start">
             <div>
               <a
                 href="#home"
@@ -252,21 +252,6 @@ export default function Footer({ lenisInstance }) {
               <p className="text-[12px] text-[#8e8980] leading-relaxed max-w-[300px]">
                 Handcrafted smash burgers seared fierce on cast iron. Fresh cuts daily.
               </p>
-            </div>
-
-            {/* Back-To-Top Circular Button */}
-            <div className="mt-8 pt-6 border-t border-white/5">
-              <button
-                ref={backToTopBtnRef}
-                onClick={handleBackToTop}
-                aria-label="Back to top"
-                className="group inline-flex items-center gap-3.5 text-[10px] font-mono tracking-widest text-[#a5a198] hover:text-[#f4f0e9] transition-colors cursor-pointer select-none"
-              >
-                <span className="w-11 h-11 rounded-full border border-[rgba(244,240,233,0.25)] flex items-center justify-center transition-all duration-300 group-hover:border-[#f45b25] group-hover:bg-[#f45b25] group-hover:text-[#17130f] group-hover:-translate-y-1 group-hover:rotate-45 cursor-pointer shadow-sm">
-                  <ArrowUp size={16} />
-                </span>
-                <span className="uppercase tracking-[0.2em] font-bold cursor-pointer">BACK TO TOP</span>
-              </button>
             </div>
           </div>
 
@@ -370,17 +355,31 @@ export default function Footer({ lenisInstance }) {
         </div>
 
         {/* ============================================================
-            3. BOTTOM LEGAL & COPYRIGHT BAR
+            3. BOTTOM LEGAL & COPYRIGHT BAR WITH BACK TO TOP
         ============================================================ */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[9px] font-mono tracking-[0.16em] uppercase text-[#7a766e]">
+        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-6 text-[9px] font-mono tracking-[0.16em] uppercase text-[#7a766e]">
           <span>
             © {new Date().getFullYear()} FLAME & FUEL RESTOBAR. ALL RIGHTS RESERVED.
           </span>
-          <span className="flex items-center gap-4">
+
+          <span className="hidden md:flex items-center gap-4">
             <span className="text-[#a5a198]">HANDCRAFTED WITH FIRE</span>
             <span>·</span>
             <span>NO COMPROMISES</span>
           </span>
+
+          {/* Back-To-Top Circular Button Placed At the Very Bottom */}
+          <button
+            ref={backToTopBtnRef}
+            onClick={handleBackToTop}
+            aria-label="Back to top"
+            className="group inline-flex items-center gap-3 text-[10px] font-mono tracking-widest text-[#a5a198] hover:text-[#f4f0e9] transition-colors cursor-pointer select-none py-1"
+          >
+            <span className="w-10 h-10 rounded-full border border-[rgba(244,240,233,0.25)] flex items-center justify-center transition-all duration-300 group-hover:border-[#f45b25] group-hover:bg-[#f45b25] group-hover:text-[#17130f] group-hover:-translate-y-1 shadow-sm">
+              <ArrowUp size={15} />
+            </span>
+            <span className="uppercase tracking-[0.2em] font-bold cursor-pointer">BACK TO TOP</span>
+          </button>
         </div>
       </div>
     </footer>

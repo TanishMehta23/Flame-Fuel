@@ -86,25 +86,25 @@ export default function ExplodingBurger() {
       // This strictly guarantees that NO ingredient ever clips or crosses the header or footer.
       const dist = isMobile
         ? {
-            topBun: -110,
-            lettuce: -78,
-            tomato: -48,
-            cheese: -18,
-            patty1: 14,
-            sauce: 42,
-            patty2: 72,
-            bottomBun: 105,
+            topBun: Math.min(88, Math.floor(vh * 0.13)) * -1,
+            lettuce: Math.min(62, Math.floor(vh * 0.095)) * -1,
+            tomato: Math.min(38, Math.floor(vh * 0.06)) * -1,
+            cheese: Math.min(14, Math.floor(vh * 0.024)) * -1,
+            patty1: Math.min(12, Math.floor(vh * 0.02)),
+            sauce: Math.min(34, Math.floor(vh * 0.052)),
+            patty2: Math.min(58, Math.floor(vh * 0.09)),
+            bottomBun: Math.min(84, Math.floor(vh * 0.125)),
           }
         : isTablet
         ? {
-            topBun: -135,
-            lettuce: -96,
-            tomato: -60,
-            cheese: -22,
-            patty1: 18,
-            sauce: 52,
-            patty2: 90,
-            bottomBun: 130,
+            topBun: Math.min(125, Math.floor(vh * 0.17)) * -1,
+            lettuce: Math.min(90, Math.floor(vh * 0.125)) * -1,
+            tomato: Math.min(56, Math.floor(vh * 0.08)) * -1,
+            cheese: Math.min(20, Math.floor(vh * 0.03)) * -1,
+            patty1: Math.min(16, Math.floor(vh * 0.025)),
+            sauce: Math.min(48, Math.floor(vh * 0.07)),
+            patty2: Math.min(82, Math.floor(vh * 0.12)),
+            bottomBun: Math.min(118, Math.floor(vh * 0.165)),
           }
         : {
             topBun: Math.min(150, Math.floor(vh * 0.20)) * -1,
@@ -357,13 +357,13 @@ export default function ExplodingBurger() {
         {/* Burger Contact Shadow */}
         <div
           ref={burgerShadowRef}
-          className="pointer-events-none absolute top-[62%] left-1/2 -translate-x-1/2 w-[260px] sm:w-[320px] md:w-[360px] h-[26px] md:h-[34px] rounded-[100%] bg-black/85 blur-[16px]"
+          className="pointer-events-none absolute top-[62%] left-1/2 -translate-x-1/2 w-[220px] sm:w-[300px] md:w-[360px] h-[22px] md:h-[34px] rounded-[100%] bg-black/85 blur-[16px]"
         />
 
         {/* Scaled Proportional Burger Stack Wrapper */}
         <div
           ref={burgerStageRef}
-          className="relative w-[250px] sm:w-[300px] md:w-[350px] lg:w-[370px] h-[220px] flex items-center justify-center transform-gpu"
+          className="relative w-[185px] xs:w-[210px] sm:w-[280px] md:w-[350px] lg:w-[370px] h-[190px] sm:h-[210px] md:h-[220px] flex items-center justify-center transform-gpu"
           style={{ transformStyle: "preserve-3d" }}
         >
           {/* ============================================================
@@ -377,13 +377,13 @@ export default function ExplodingBurger() {
             <div
               ref={labelTopBunRef}
               data-side="right"
-              className="layer-tag absolute left-[100%] top-[25%] hidden sm:flex items-center gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
+              className="layer-tag absolute left-[96%] sm:left-[100%] top-[25%] flex items-center gap-1.5 sm:gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
             >
-              <span className="w-6 md:w-8 h-[1px] bg-[#f45b25]/70 border-b border-dashed border-[#f45b25]" />
-              <div className="tag-card bg-[#141411]/90 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2.5 py-1 rounded-sm">
-                <span className="block text-[7.5px] font-mono tracking-widest text-[#f45b25]">01 // BUN</span>
-                <span className="block text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
-                  GLAZED BRIOCHE & SESAME
+              <span className="w-3 sm:w-6 md:w-8 h-[1px] bg-[#f45b25]/70 border-b border-dashed border-[#f45b25]" />
+              <div className="tag-card bg-[#141411]/95 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-sm shadow-md">
+                <span className="block text-[6.5px] sm:text-[7.5px] font-mono tracking-widest text-[#f45b25]">01 // BUN</span>
+                <span className="block text-[8px] sm:text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
+                  GLAZED BRIOCHE
                 </span>
               </div>
             </div>
@@ -400,13 +400,13 @@ export default function ExplodingBurger() {
             <div
               ref={labelLettuceRef}
               data-side="left"
-              className="layer-tag absolute right-[100%] top-[30%] hidden sm:flex flex-row-reverse items-center gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
+              className="layer-tag absolute right-[96%] sm:right-[100%] top-[30%] flex flex-row-reverse items-center gap-1.5 sm:gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
             >
-              <span className="w-6 md:w-8 h-[1px] bg-[#60be29]/80 border-b border-dashed border-[#60be29]" />
-              <div className="tag-card text-right bg-[#141411]/90 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2.5 py-1 rounded-sm">
-                <span className="block text-[7.5px] font-mono tracking-widest text-[#60be29]">02 // GREENS</span>
-                <span className="block text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
-                  CRISP HAND-TORN ICEBERG
+              <span className="w-3 sm:w-6 md:w-8 h-[1px] bg-[#60be29]/80 border-b border-dashed border-[#60be29]" />
+              <div className="tag-card text-right bg-[#141411]/95 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-sm shadow-md">
+                <span className="block text-[6.5px] sm:text-[7.5px] font-mono tracking-widest text-[#60be29]">02 // GREENS</span>
+                <span className="block text-[8px] sm:text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
+                  CRISP ICEBERG
                 </span>
               </div>
             </div>
@@ -423,13 +423,13 @@ export default function ExplodingBurger() {
             <div
               ref={labelTomatoRef}
               data-side="right"
-              className="layer-tag absolute left-[100%] top-[30%] hidden sm:flex items-center gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
+              className="layer-tag absolute left-[96%] sm:left-[100%] top-[30%] flex items-center gap-1.5 sm:gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
             >
-              <span className="w-6 md:w-8 h-[1px] bg-[#ff4538]/80 border-b border-dashed border-[#ff4538]" />
-              <div className="tag-card bg-[#141411]/90 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2.5 py-1 rounded-sm">
-                <span className="block text-[7.5px] font-mono tracking-widest text-[#ff4538]">03 // ACIDITY</span>
-                <span className="block text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
-                  VINE-RIPENED ROMA SLICES
+              <span className="w-3 sm:w-6 md:w-8 h-[1px] bg-[#ff4538]/80 border-b border-dashed border-[#ff4538]" />
+              <div className="tag-card bg-[#141411]/95 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-sm shadow-md">
+                <span className="block text-[6.5px] sm:text-[7.5px] font-mono tracking-widest text-[#ff4538]">03 // ACIDITY</span>
+                <span className="block text-[8px] sm:text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
+                  VINE-RIPENED ROMA
                 </span>
               </div>
             </div>
@@ -446,13 +446,13 @@ export default function ExplodingBurger() {
             <div
               ref={labelCheeseRef}
               data-side="left"
-              className="layer-tag absolute right-[100%] top-[35%] hidden sm:flex flex-row-reverse items-center gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
+              className="layer-tag absolute right-[96%] sm:right-[100%] top-[35%] flex flex-row-reverse items-center gap-1.5 sm:gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
             >
-              <span className="w-6 md:w-8 h-[1px] bg-[#ffa710]/80 border-b border-dashed border-[#ffa710]" />
-              <div className="tag-card text-right bg-[#141411]/90 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2.5 py-1 rounded-sm">
-                <span className="block text-[7.5px] font-mono tracking-widest text-[#ffa710]">04 // CHEESE</span>
-                <span className="block text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
-                  MELTED AGED CHEDDAR
+              <span className="w-3 sm:w-6 md:w-8 h-[1px] bg-[#ffa710]/80 border-b border-dashed border-[#ffa710]" />
+              <div className="tag-card text-right bg-[#141411]/95 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-sm shadow-md">
+                <span className="block text-[6.5px] sm:text-[7.5px] font-mono tracking-widest text-[#ffa710]">04 // CHEESE</span>
+                <span className="block text-[8px] sm:text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
+                  AGED CHEDDAR
                 </span>
               </div>
             </div>
@@ -469,13 +469,13 @@ export default function ExplodingBurger() {
             <div
               ref={labelPatty1Ref}
               data-side="right"
-              className="layer-tag absolute left-[100%] top-[35%] hidden sm:flex items-center gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
+              className="layer-tag absolute left-[96%] sm:left-[100%] top-[35%] flex items-center gap-1.5 sm:gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
             >
-              <span className="w-6 md:w-8 h-[1px] bg-[#f45b25]/80 border-b border-dashed border-[#f45b25]" />
-              <div className="tag-card bg-[#141411]/90 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2.5 py-1 rounded-sm">
-                <span className="block text-[7.5px] font-mono tracking-widest text-[#f45b25]">05 // SMASH I</span>
-                <span className="block text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
-                  CRISP CHICKEN & SMASH PATTY
+              <span className="w-3 sm:w-6 md:w-8 h-[1px] bg-[#f45b25]/80 border-b border-dashed border-[#f45b25]" />
+              <div className="tag-card bg-[#141411]/95 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-sm shadow-md">
+                <span className="block text-[6.5px] sm:text-[7.5px] font-mono tracking-widest text-[#f45b25]">05 // SMASH I</span>
+                <span className="block text-[8px] sm:text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
+                  CRISP SMASH PATTY
                 </span>
               </div>
             </div>
@@ -492,13 +492,13 @@ export default function ExplodingBurger() {
             <div
               ref={labelSauceRef}
               data-side="left"
-              className="layer-tag absolute right-[100%] top-[35%] hidden sm:flex flex-row-reverse items-center gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
+              className="layer-tag absolute right-[96%] sm:right-[100%] top-[35%] flex flex-row-reverse items-center gap-1.5 sm:gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
             >
-              <span className="w-6 md:w-8 h-[1px] bg-[#f45b25] border-b border-dashed border-[#f45b25]" />
-              <div className="tag-card text-right bg-[#141411]/90 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2.5 py-1 rounded-sm">
-                <span className="block text-[7.5px] font-mono tracking-widest text-[#f45b25]">06 // SECRET SAUCE</span>
-                <span className="block text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
-                  FLAME & FUEL HOUSE SAUCE
+              <span className="w-3 sm:w-6 md:w-8 h-[1px] bg-[#f45b25] border-b border-dashed border-[#f45b25]" />
+              <div className="tag-card text-right bg-[#141411]/95 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-sm shadow-md">
+                <span className="block text-[6.5px] sm:text-[7.5px] font-mono tracking-widest text-[#f45b25]">06 // SAUCE</span>
+                <span className="block text-[8px] sm:text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
+                  HOUSE SECRET SAUCE
                 </span>
               </div>
             </div>
@@ -515,13 +515,13 @@ export default function ExplodingBurger() {
             <div
               ref={labelPatty2Ref}
               data-side="right"
-              className="layer-tag absolute left-[100%] top-[35%] hidden sm:flex items-center gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
+              className="layer-tag absolute left-[96%] sm:left-[100%] top-[35%] flex items-center gap-1.5 sm:gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
             >
-              <span className="w-6 md:w-8 h-[1px] bg-[#f45b25]/80 border-b border-dashed border-[#f45b25]" />
-              <div className="tag-card bg-[#141411]/90 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2.5 py-1 rounded-sm">
-                <span className="block text-[7.5px] font-mono tracking-widest text-[#f45b25]">07 // SMASH II</span>
-                <span className="block text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
-                  CHARRED GOLDEN CRUST LAYER
+              <span className="w-3 sm:w-6 md:w-8 h-[1px] bg-[#f45b25]/80 border-b border-dashed border-[#f45b25]" />
+              <div className="tag-card bg-[#141411]/95 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-sm shadow-md">
+                <span className="block text-[6.5px] sm:text-[7.5px] font-mono tracking-widest text-[#f45b25]">07 // SMASH II</span>
+                <span className="block text-[8px] sm:text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
+                  CHARRED CRUST LAYER
                 </span>
               </div>
             </div>
@@ -538,13 +538,13 @@ export default function ExplodingBurger() {
             <div
               ref={labelBottomBunRef}
               data-side="left"
-              className="layer-tag absolute right-[100%] top-[35%] hidden sm:flex flex-row-reverse items-center gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
+              className="layer-tag absolute right-[96%] sm:right-[100%] top-[35%] flex flex-row-reverse items-center gap-1.5 sm:gap-2.5 opacity-0 whitespace-nowrap pointer-events-none"
             >
-              <span className="w-6 md:w-8 h-[1px] bg-[#d97524]/80 border-b border-dashed border-[#d97524]" />
-              <div className="tag-card text-right bg-[#141411]/90 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2.5 py-1 rounded-sm">
-                <span className="block text-[7.5px] font-mono tracking-widest text-[#d97524]">08 // HEEL</span>
-                <span className="block text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
-                  TOASTED BRIOCHE BASE
+              <span className="w-3 sm:w-6 md:w-8 h-[1px] bg-[#d97524]/80 border-b border-dashed border-[#d97524]" />
+              <div className="tag-card text-right bg-[#141411]/95 backdrop-blur-md border border-[rgba(244,240,233,0.18)] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-sm shadow-md">
+                <span className="block text-[6.5px] sm:text-[7.5px] font-mono tracking-widest text-[#d97524]">08 // HEEL</span>
+                <span className="block text-[8px] sm:text-[10px] font-['Space_Grotesk'] font-bold text-[#f4f0e9]">
+                  TOASTED BRIOCHE HEEL
                 </span>
               </div>
             </div>
@@ -553,16 +553,16 @@ export default function ExplodingBurger() {
       </div>
 
       {/* Bottom Footer Callout & Scroll Indicator */}
-      <div className="relative z-20 w-full pb-4 sm:pb-5 px-[5.2vw] flex justify-between items-end border-t border-[rgba(244,240,233,0.12)] pt-2.5">
+      <div className="relative z-20 w-full pb-3 sm:pb-5 px-[5.2vw] flex flex-col sm:flex-row justify-between items-start sm:items-end gap-1.5 sm:gap-4 border-t border-[rgba(244,240,233,0.12)] pt-2 sm:pt-2.5">
         <div>
-          <p className="text-[8.5px] sm:text-[9.5px] tracking-[0.16em] uppercase font-mono text-[#a5a198]">
+          <p className="text-[7.5px] sm:text-[9.5px] tracking-[0.16em] uppercase font-mono text-[#a5a198]">
             ANATOMY OF A LEGEND
           </p>
-          <p className="text-[10.5px] sm:text-[11.5px] text-[#f4f0e9] font-['Space_Grotesk'] font-bold mt-0.5">
+          <p className="text-[9.5px] sm:text-[11.5px] text-[#f4f0e9] font-['Space_Grotesk'] font-bold mt-0.5">
             EVERY INGREDIENT SOURCED FRESH. SMASHED WITH FIRE.
           </p>
         </div>
-        <div className="flex items-center gap-2 text-[8px] sm:text-[8.5px] tracking-[0.18em] uppercase font-mono text-[#f45b25]">
+        <div className="flex items-center gap-1.5 sm:gap-2 text-[7.5px] sm:text-[8.5px] tracking-[0.18em] uppercase font-mono text-[#f45b25]">
           <span>SCROLL DOWN TO DISSECT / REVERSE</span>
           <span className="inline-block animate-bounce text-xs">↓</span>
         </div>

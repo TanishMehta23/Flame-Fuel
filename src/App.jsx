@@ -201,12 +201,22 @@ export default function App() {
   const [lenis, setLenis] = useState(null);
   const complete = () => setLoaded(true);
   useEffect(() => {
+    // Ensure scroll is at the very top immediately upon initialization
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+
     const instance = new Lenis({
       duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth exponential deceleration
       smoothWheel: true,
       wheelMultiplier: 0.95
     });
+
+    // Reset Lenis instance immediately to top
+    instance.scrollTo(0, { immediate: true });
+
     setLenis(instance);
     window.__lenis = instance;
 
@@ -246,8 +256,14 @@ export default function App() {
   }, []);
   useEffect(() => {
     if (!loaded) return;
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+    ScrollTrigger.refresh();
     gsap.from(".hero-eyebrow, .hero-title span, .hero-bottom", { y: 70, opacity: 0, stagger: 0.12, duration: 1, ease: "power4.out", delay: 0.1 });
-  }, [loaded]);
+  }, [loaded, lenis]);
   return <>
     {!loaded && <Preloader onComplete={complete}/>}
     <ScrollProgressBar/>

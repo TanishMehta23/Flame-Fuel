@@ -195,30 +195,34 @@ export default function Menu() {
       </div>
 
       {/* Category Filter Navigation */}
-      <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-14 border-b border-[rgba(244,240,233,0.1)] pb-6">
-        <span className="text-[10px] font-mono tracking-widest text-[#736f66] mr-2">FILTER:</span>
-        {menuCategories.map((category) => {
-          const isActive = selectedCategory === category;
-          return (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`filter-tab-btn relative px-5 py-2 text-[10px] sm:text-[11px] font-mono tracking-[0.16em] uppercase rounded-full transition-all duration-300 ${
-                isActive
-                  ? "bg-[#f45b25] text-[#17130f] font-bold shadow-[0_0_20px_rgba(244,91,37,0.4)]"
-                  : "bg-[#181815] text-[#a5a198] hover:text-[#f4f0e9] border border-[rgba(244,240,233,0.12)] hover:border-[#f45b25]/50"
-              }`}
-            >
-              {category}
-            </button>
-          );
-        })}
+      <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 mb-12 sm:mb-14 border-b border-[rgba(244,240,233,0.1)] pb-6">
+        <span className="text-[10px] sm:text-[11px] font-mono tracking-widest text-[#a5a198] mr-1 sm:mr-2 flex items-center leading-none">
+          FILTER:
+        </span>
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          {menuCategories.map((category) => {
+            const isActive = selectedCategory === category;
+            return (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`filter-tab-btn inline-flex items-center justify-center h-9 sm:h-10 px-5 sm:px-6 text-[10.5px] sm:text-[11px] font-mono tracking-[0.16em] uppercase rounded-full cursor-pointer transition-all duration-300 select-none leading-none box-border ${
+                  isActive
+                    ? "bg-[#f45b25] text-[#10100e] font-bold shadow-[0_0_20px_rgba(244,91,37,0.45)] border border-[#f45b25]"
+                    : "bg-[#181814] text-[#d4cfc5] hover:text-[#f4f0e9] border border-[rgba(244,240,233,0.16)] hover:border-[#f45b25]/70 hover:bg-[#22211c]"
+                }`}
+              >
+                <span>{category}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Product Cards Grid: 1 col on mobile, 2 col on tablet, 3-4 on desktop */}
       <div
         ref={gridRef}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-7"
       >
         {filteredItems.map((item, index) => (
           <article
@@ -234,10 +238,10 @@ export default function Menu() {
                 loading="lazy"
                 width={1000}
                 height={750}
-                className="product-card-img w-full h-[115%] object-cover object-center filter saturate-[0.88] transition-transform duration-700 ease-out group-hover:scale-108 group-hover:saturate-100"
+                className="product-card-img w-full h-[115%] object-cover object-center filter brightness-105 contrast-[1.03] transition-transform duration-700 ease-out group-hover:scale-108"
               />
-              {/* Vignette Overlay */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#151512] via-transparent to-black/40" />
+              {/* Subtle Bottom Card Transition Vignette (Clear & Bright Image) */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#151512] to-transparent" />
 
               {/* Tag & Category Badge */}
               <div className="absolute top-3.5 left-3.5 right-3.5 flex justify-between items-center pointer-events-none">
@@ -298,72 +302,72 @@ export default function Menu() {
         <div
           ref={modalOverlayRef}
           onClick={closeModal}
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
         >
           <div
             ref={modalCardRef}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-[780px] bg-[#151512] border border-[rgba(244,240,233,0.2)] rounded-sm overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.95)] flex flex-col md:flex-row"
+            className="relative w-full max-w-[780px] my-auto max-h-[92vh] bg-[#151512] border border-[rgba(244,240,233,0.2)] rounded-sm overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.95)] flex flex-col md:flex-row"
           >
             {/* Close Button */}
             <button
               onClick={closeModal}
               aria-label="Close modal"
-              className="absolute top-3.5 right-3.5 z-30 w-9 h-9 rounded-full bg-[#181815] hover:bg-[#f45b25] border border-[rgba(244,240,233,0.25)] hover:border-[#f45b25] text-[#ded9cf] hover:text-[#17130f] flex items-center justify-center cursor-pointer transition-all duration-200 shadow-md hover:scale-105 active:scale-95"
+              className="absolute top-3.5 right-3.5 z-30 w-9 h-9 rounded-full bg-[#181815]/90 hover:bg-[#f45b25] border border-[rgba(244,240,233,0.25)] hover:border-[#f45b25] text-[#ded9cf] hover:text-[#17130f] flex items-center justify-center cursor-pointer transition-all duration-200 shadow-md hover:scale-105 active:scale-95"
             >
               <X size={16} />
             </button>
 
             {/* Left Big Image */}
-            <div className="relative w-full md:w-1/2 h-[260px] md:h-auto overflow-hidden bg-black">
+            <div className="relative w-full md:w-1/2 h-[200px] sm:h-[240px] md:h-auto overflow-hidden bg-black flex-shrink-0">
               <SafeImage
                 src={activeModalItem.image}
                 alt={activeModalItem.name}
                 loading="eager"
                 width={1000}
                 height={750}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover object-center filter brightness-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#151512] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#151512]" />
-              <div className="absolute bottom-4 left-4 z-10">
-                <span className="bg-[#f45b25] text-[#17130f] font-bold text-[9px] tracking-widest uppercase px-3 py-1 rounded-sm">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#151512]/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#151512]/60" />
+              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-10">
+                <span className="bg-[#f45b25] text-[#17130f] font-bold text-[8.5px] sm:text-[9px] tracking-widest uppercase px-2.5 sm:px-3 py-1 rounded-sm">
                   {activeModalItem.tag}
                 </span>
               </div>
             </div>
 
             {/* Right Information & Recipe Breakdown */}
-            <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-between">
+            <div className="w-full md:w-1/2 p-5 sm:p-7 md:p-8 flex flex-col justify-between overflow-y-auto">
               <div>
-                <div className="flex justify-between items-start gap-4 mb-2 pr-10">
-                  <h3 className="text-[22px] sm:text-[26px] font-['Space_Grotesk'] font-bold text-[#f4f0e9] tracking-tight leading-tight">
+                <div className="flex justify-between items-start gap-3 mb-2 pr-8">
+                  <h3 className="text-[20px] sm:text-[24px] md:text-[26px] font-['Space_Grotesk'] font-bold text-[#f4f0e9] tracking-tight leading-tight">
                     {activeModalItem.name}
                   </h3>
-                  <span className="text-[22px] sm:text-[26px] font-['Space_Grotesk'] font-bold text-[#f45b25] whitespace-nowrap">
+                  <span className="text-[20px] sm:text-[24px] md:text-[26px] font-['Space_Grotesk'] font-bold text-[#f45b25] whitespace-nowrap">
                     ₹{activeModalItem.price}
                   </span>
                 </div>
 
-                <p className="text-[9px] font-mono tracking-widest uppercase text-[#a5a198] mb-4">
+                <p className="text-[8.5px] sm:text-[9px] font-mono tracking-widest uppercase text-[#a5a198] mb-3 sm:mb-4">
                   {activeModalItem.subtitle}
                 </p>
 
-                <p className="text-[13px] text-[#ded9cf] leading-relaxed mb-6">
+                <p className="text-[12px] sm:text-[13px] text-[#ded9cf] leading-relaxed mb-5 sm:mb-6">
                   {activeModalItem.description}
                 </p>
 
                 {/* Ingredients Pill List */}
-                <div className="mb-6">
-                  <h4 className="text-[9px] font-mono tracking-widest uppercase text-[#736f66] mb-3">
+                <div className="mb-5 sm:mb-6">
+                  <h4 className="text-[8.5px] sm:text-[9px] font-mono tracking-widest uppercase text-[#736f66] mb-2 sm:mb-3">
                     INGREDIENTS BREAKDOWN
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {activeModalItem.ingredients.map((ing, i) => (
                       <li
                         key={i}
-                        className="text-[12px] text-[#a5a198] flex items-center gap-2.5"
+                        className="text-[11.5px] sm:text-[12px] text-[#a5a198] flex items-center gap-2"
                       >
-                        <span className="w-4 h-4 rounded-full bg-[#f45b25]/20 flex items-center justify-center text-[#f45b25]">
+                        <span className="w-4 h-4 rounded-full bg-[#f45b25]/20 flex items-center justify-center text-[#f45b25] flex-shrink-0">
                           <Check size={10} />
                         </span>
                         <span>{ing}</span>
@@ -374,10 +378,10 @@ export default function Menu() {
               </div>
 
               {/* Bottom Quick Spec Bar */}
-              <div className="pt-4 border-t border-[rgba(244,240,233,0.12)] flex justify-between items-center text-[10px] font-mono text-[#a5a198]">
+              <div className="pt-3.5 border-t border-[rgba(244,240,233,0.12)] flex flex-wrap gap-2 justify-between items-center text-[9px] sm:text-[10px] font-mono text-[#a5a198]">
                 <span>HEAT: <strong className="text-[#f4f0e9]">{activeModalItem.spiciness}</strong></span>
                 <span>ENERGY: <strong className="text-[#f4f0e9]">{activeModalItem.calories}</strong></span>
-                <span>CATEGORY: <strong className="text-[#f45b25]">{activeModalItem.category}</strong></span>
+                <span>CAT: <strong className="text-[#f45b25]">{activeModalItem.category}</strong></span>
               </div>
             </div>
           </div>

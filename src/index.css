@@ -121,8 +121,83 @@
 .story{display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:center}.story-image-wrap{position:relative;height:570px;overflow:hidden}.story-image{width:100%;height:100%;object-fit:cover;filter:saturate(.7)}.story-image-label{position:absolute;bottom:18px;left:18px;font-size:8px;letter-spacing:.15em}.story-copy h2{font-size:clamp(3.7rem,6.5vw,6.5rem)}.story-copy .body-copy{margin:30px 0}
 .cta{background:var(--orange);color:#17130f;position:relative;overflow:hidden;text-align:center;padding-top:115px;padding-bottom:110px}.cta .eyebrow{color:#2b1a12;justify-content:center}.cta .eyebrow>span{background:#17130f}.cta h2{font:700 clamp(5rem,13vw,12rem)/.78 "Space Grotesk";letter-spacing:-.1em;margin:50px 0}.cta h2 em{color:#f4eee3}.cta-note{font-size:8px;letter-spacing:.2em;margin-top:55px}
 .footer{padding:35px 5.2vw;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line)}.footer-copy{font-size:8px;letter-spacing:.13em;color:#8e8980}.socials{display:flex;gap:20px;color:#c5c0b6}.socials a:hover{color:var(--orange)}
-@media(max-width:800px){.navbar{height:72px}.mobile-toggle{display:block}.nav-links{display:none;position:absolute;top:72px;left:0;width:100%;padding:28px 6vw 34px;background:#11110f;flex-direction:column;align-items:flex-start;gap:24px}.nav-links.nav-open{display:flex}.hero{min-height:700px;padding:130px 7vw 90px}.hero-topline{left:7vw;right:7vw;top:95px;font-size:7px}.hero-topline span:last-child{display:none}.hero-title{font-size:clamp(5rem,18vw,9rem)}.hero-shade{background:linear-gradient(90deg,rgba(10,10,9,.82),rgba(10,10,9,.25)),linear-gradient(0deg,rgba(10,10,9,.7),transparent 55%)}.hero-vertical{display:none}.section-pad{padding:85px 7vw}.signature-grid,.story{grid-template-columns:1fr;gap:55px}.signature-photo{height:430px}.signature-copy h2{font-size:6rem}.ingredient-word{font-size:clamp(4rem,15vw,7rem)}.menu-grid{grid-template-columns:1fr 1fr}.menu-image-wrap{height:260px}.story-image-wrap{height:420px}.story-copy h2{font-size:5.5rem}}
-@media(max-width:520px){.brand{font-size:15px}.hero{min-height:680px}.hero-title{font-size:19vw}.hero-bottom>p{font-size:12px}.round-link{width:85px;height:85px}.section-kicker{font-size:7px;letter-spacing:.1em}.signature-photo{height:330px}.signature-copy h2{font-size:5rem}.photo-stamp{width:82px;height:82px;font-size:11px;right:-10px}.ingredient-word{font-size:16vw;margin:55px 0 45px}.ingredient-cards{grid-template-columns:1fr}.ingredient-card,.ingredient-card:not(:first-child){padding:20px 0;border-right:0;border-bottom:1px solid rgba(20,20,20,.2)}.ingredient-card h3{margin:16px 0 7px}.menu-heading{display:block;padding:50px 0 35px}.menu-heading h2{font-size:4.5rem}.menu-heading>.body-copy{margin-top:25px}.menu-grid{grid-template-columns:1fr;gap:32px}.menu-image-wrap{height:310px}.story-image-wrap{height:340px}.story-copy h2{font-size:4.5rem}.cta h2{font-size:19vw}.footer{gap:22px;flex-wrap:wrap}.footer-copy{order:3;width:100%}}
+@media(max-width:800px){
+  .navbar{height:68px;padding:0 5vw}
+  .mobile-toggle{display:block}
+  .nav-links{
+    display:none;
+    position:fixed;
+    top:68px;
+    left:0;
+    width:100%;
+    height:calc(100svh - 68px);
+    padding:36px 6vw 40px;
+    background:rgba(16, 16, 14, 0.96);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(244,240,233,0.12);
+    flex-direction:column;
+    align-items:flex-start;
+    gap:28px;
+    overflow-y:auto;
+  }
+  .nav-links.nav-open{display:flex}
+  .nav-links>a{font-size:16px;font-weight:600;letter-spacing:0.04em}
+  .nav-links .nav-order{width:100%;justify-content:center;padding:15px 20px;font-size:13px;border-color:var(--orange);background:rgba(244,91,37,0.1)}
+  .hero{min-height:640px;height:100svh;padding:110px 6vw 80px}
+  .hero-topline{left:6vw;right:6vw;top:84px;font-size:7.5px}
+  .hero-topline span:last-child{display:none}
+  .hero-title{font-size:clamp(4.2rem,16vw,8rem);margin:24px 0 32px}
+  .hero-shade{background:linear-gradient(90deg,rgba(10,10,9,.88),rgba(10,10,9,.5)),linear-gradient(0deg,rgba(10,10,9,.85),transparent 50%)}
+  .hero-vertical{display:none}
+  .hero-center-cta{bottom:70px}
+  .hero-hungry-btn{width:105px;height:105px}
+  .section-pad{padding:80px 6vw}
+  .signature-grid,.story{grid-template-columns:1fr;gap:45px}
+  .signature-photo-wrap{max-width:480px;margin:0 auto}
+  .signature-photo{height:auto;max-height:420px}
+  .signature-copy h2{font-size:clamp(3.5rem,11vw,5.5rem)}
+  .ingredient-word{font-size:clamp(3.8rem,13vw,6.5rem);margin:50px 0 40px}
+  .menu-grid{grid-template-columns:repeat(2,1fr)}
+  .menu-image-wrap{height:250px}
+  .story-image-wrap{height:380px}
+  .story-copy h2{font-size:clamp(3.5rem,10vw,5rem)}
+}
+@media(max-width:520px){
+  .navbar{height:64px;padding:0 4.5vw}
+  .brand{font-size:15px}
+  .nav-links{top:64px;height:calc(100svh - 64px)}
+  .hero{min-height:580px;padding:95px 5vw 70px}
+  .hero-topline{left:5vw;right:5vw;top:76px;font-size:7px}
+  .hero-title{font-size:clamp(3.6rem,18vw,5.8rem);margin:18px 0 24px}
+  .hero-bottom>p{font-size:12px;line-height:1.6}
+  .hero-center-cta{bottom:50px}
+  .hero-hungry-btn{width:90px;height:90px}
+  .btn-label{font-size:8px}
+  .section-pad{padding:65px 5vw}
+  .section-kicker{font-size:7px;letter-spacing:.12em}
+  .signature-photo-wrap{max-width:320px}
+  .signature-photo{max-height:300px}
+  .signature-copy h2{font-size:clamp(3rem,14vw,4.2rem);margin:20px 0}
+  .photo-stamp{width:75px;height:75px;font-size:10px;right:-4px;bottom:10px}
+  .ingredient-word{font-size:clamp(3.2rem,14vw,4.5rem);margin:40px 0 30px}
+  .ingredient-cards{grid-template-columns:1fr}
+  .ingredient-card,.ingredient-card:not(:first-child){padding:18px 0;border-right:0;border-bottom:1px solid rgba(20,20,20,.15)}
+  .ingredient-card h3{margin:14px 0 6px;font-size:16px}
+  .ingredient-card p{font-size:11px;max-width:100%}
+  .menu-heading{display:block;padding:40px 0 28px}
+  .menu-heading h2{font-size:clamp(3rem,13vw,4.2rem)}
+  .menu-heading>.body-copy{margin-top:18px}
+  .menu-grid{grid-template-columns:1fr;gap:24px}
+  .menu-image-wrap{height:260px}
+  .story-image-wrap{height:300px}
+  .story-copy h2{font-size:clamp(3rem,12vw,4rem)}
+  .cta{padding:80px 5vw}
+  .cta h2{font-size:clamp(3.6rem,17vw,6.5rem);margin:36px 0}
+  .cta-button{gap:28px;padding:15px 20px;font-size:9.5px;width:100%;justify-content:center}
+  .footer{gap:20px;flex-direction:column;align-items:flex-start}
+  .footer-copy{order:3;width:100%}
+}
 /* Exploding Burger Custom Enhancements */
 .exploding-burger-section {
   contain: paint;
