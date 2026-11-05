@@ -1,4 +1,4 @@
-# 🔥 FLAME & FUEL
+<h1 align="center">🔥 FLAME & FUEL</h1>
 
 <p align="center">
   <strong>A bold, cinematic restaurant experience built on fire, craft, and motion.</strong>
