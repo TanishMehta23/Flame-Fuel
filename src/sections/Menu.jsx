@@ -114,21 +114,45 @@ export default function Menu() {
     ScrollTrigger.refresh();
   }, [selectedCategory]);
 
-  // Modal open/close animation
+  // Modal open/close animation & Background Scroll Lock
   useEffect(() => {
-    if (activeModalItem && modalOverlayRef.current && modalCardRef.current) {
-      const tl = gsap.timeline();
-      tl.fromTo(
-        modalOverlayRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.3, ease: "power2.out" }
-      ).fromTo(
-        modalCardRef.current,
-        { y: 50, scale: 0.95, opacity: 0 },
-        { y: 0, scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.4)" },
-        "-=0.15"
-      );
+    if (activeModalItem) {
+      // Stop Lenis smooth scroll and lock body/html scroll
+      if (window.__lenis) {
+        window.__lenis.stop();
+      }
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+
+      if (modalOverlayRef.current && modalCardRef.current) {
+        const tl = gsap.timeline();
+        tl.fromTo(
+          modalOverlayRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.3, ease: "power2.out" }
+        ).fromTo(
+          modalCardRef.current,
+          { y: 50, scale: 0.95, opacity: 0 },
+          { y: 0, scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.4)" },
+          "-=0.15"
+        );
+      }
+    } else {
+      // Restore Lenis smooth scroll and unlock body/html scroll
+      if (window.__lenis) {
+        window.__lenis.start();
+      }
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
+
+    return () => {
+      if (window.__lenis) {
+        window.__lenis.start();
+      }
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
   }, [activeModalItem]);
 
   const closeModal = () => {
@@ -302,12 +326,14 @@ export default function Menu() {
         <div
           ref={modalOverlayRef}
           onClick={closeModal}
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
+          data-lenis-prevent
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto overscroll-contain"
         >
           <div
             ref={modalCardRef}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-[780px] my-auto max-h-[92vh] bg-[#151512] border border-[rgba(244,240,233,0.2)] rounded-sm overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.95)] flex flex-col md:flex-row"
+            data-lenis-prevent
+            className="relative w-full max-w-[780px] my-auto max-h-[92vh] bg-[#151512] border border-[rgba(244,240,233,0.2)] rounded-sm overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.95)] flex flex-col md:flex-row overscroll-contain"
           >
             {/* Close Button */}
             <button
